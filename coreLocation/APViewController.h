@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface APViewController : UIViewController
+@interface APViewController : UIViewController <CLLocationManagerDelegate>
+
+@property (strong, nonatomic) CLLocationManager * locationManager;
+@property (strong, nonatomic) CLLocation * currentLocation;
+@property (strong, nonatomic) IBOutlet UILabel *gpsOutput;
+
+-(void) locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation;
+-(void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error;
 
 @end
